@@ -12,7 +12,7 @@ public class ControlFlowExercises {
         }
 
         //B
-        for (int i = 2; i < 1000000; i *= i) {
+        for (int i = 6; i < 1000000; i = (int) Math.pow(i, 2)) {
             System.out.println(i);
         }
     }
