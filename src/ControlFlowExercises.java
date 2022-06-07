@@ -4,16 +4,17 @@ public class ControlFlowExercises {
 //        Exercises
 //        For all of the following exercises, create a new class named ControlFlowExercises with a main method. After each exercise, commit your changes, then replace your code in the main method with the next exercise.
 
-        //1
-
-        //A
-        for (int i = 5; i <= 15; i++) {
-            System.out.println(i);
-        }
-
-        //B
-        for (int i = 6; i < 1000000; i = (int) Math.pow(i, 2)) {
-            System.out.println(i);
+        //2
+        for (int i = 1; i <= 100; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                System.out.println("FizzBuzz");
+            } else if (i % 3 == 0) {
+                System.out.println("Fizz");
+            } else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            } else {
+                System.out.println(i);
+            }
         }
     }
 }
