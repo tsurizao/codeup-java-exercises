@@ -65,5 +65,4 @@ public class ControlFlowExercises {
             System.out.println(i + iSpaces + squared + squaredSpaces + cubed);
         }
     }
-
 }
