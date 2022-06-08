@@ -3,27 +3,42 @@ import java.util.Scanner;
 public class ControlFlowExercises {
     public static void main(String[] args) {
 
-        //3
-
+        //4
         Scanner s = new Scanner(System.in);
-        System.out.println("What number would you like to go up to?");
-        int userInput = s.nextInt();
-        int i = 0;
-        String userResponse = "";
-        System.out.println("number | squared | cubed\n-------|---------|-------");
-        do {
-            i++;
-            int squared = i * i;
-            int cubed = i * i * i;
-            System.out.printf("%-6d | %-7d | %-5d%n", i, squared, cubed);
-            if (i == userInput) {
-                System.out.println("Would you like to continue?");
-                userResponse = s.next().toLowerCase();
-                if (userResponse.equals("no")) {
-                    System.out.println("Exiting Loop.");
-                    break;
-                }
+        System.out.println("Enter a numerical grade value from 0 to 100");
+        int userGrade = s.nextInt();
+        System.out.println("Would you like to see your letter grade?  Please enter 'Yes' or 'No'");
+        String userContinue = s.next().toLowerCase();
+        if (userContinue.equals("yes")) {
+            if (userGrade > 97) {
+                System.out.println("Your grade is an A+");
+            } else if (userGrade > 93) {
+                System.out.println("Your grade is an A");
+            } else if (userGrade > 89) {
+                System.out.println("Your grade is an A-");
+            } else if (userGrade > 87) {
+                System.out.println("Your grade is a B+");
+            } else if (userGrade > 83) {
+                System.out.println("Your grade is a B");
+            } else if (userGrade > 79) {
+                System.out.println("Your grade is a B-");
+            } else if (userGrade > 77) {
+                System.out.println("Your grade is a C+");
+            } else if (userGrade > 73) {
+                System.out.println("Your grade is a C");
+            } else if (userGrade > 69) {
+                System.out.println("Your grade is a C-");
+            } else if (userGrade > 67) {
+                System.out.println("Your grade is a D+");
+            } else if (userGrade > 63) {
+                System.out.println("Your grade is a D");
+            } else if (userGrade > 59) {
+                System.out.println("Your grade is a D-");
+            } else {
+                System.out.println("Your grade is an F");
             }
-        } while (i <= 99);
+        } else {
+            System.out.println("No problem, have a good day!");
+        }
     }
 }
