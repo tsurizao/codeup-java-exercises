@@ -1,4 +1,4 @@
-import org.w3c.dom.ls.LSOutput;
+import java.util.Scanner;
 
 public class MethodExercises {
     public static void main(String[] args) {
@@ -9,6 +9,7 @@ public class MethodExercises {
         System.out.println("Multiplication: " + multiplication(5, 3));
         System.out.println("Multiplication Loop: " + multiplicationLoop(5, 3));
         System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
+        System.out.println(getInteger(1, 10));
     }
 
     public static int addition(int num, int num2) {
@@ -19,16 +20,16 @@ public class MethodExercises {
         return num - num2;
     }
 
-    public static int multiplication(int num, int num2) {
-        return num * num2;
-    }
-
     public static int division(int num, int num2) {
         return num / num2;
     }
 
     public static int modulus(int num, int num2) {
         return num % num2;
+    }
+
+    public static int multiplication(int num, int num2) {
+        return num * num2;
     }
 
     //using loop to calculate product without using *
@@ -43,5 +44,16 @@ public class MethodExercises {
     // using recursion to calculate product without using *
     public static int multiplicationRecursion(int num, int num2) {
         return num2 <= 1 ? num : num + multiplicationRecursion(num, num2 - 1);
+    }
+
+    public static int getInteger(int min, int max) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter a valid number between " + min + " and " + max);
+        int userInput = sc.nextInt();
+        if (userInput >= min && userInput <= max) {
+            return userInput;
+        } else {
+            return getInteger(min, max);
+        }
     }
 }
