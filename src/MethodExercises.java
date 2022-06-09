@@ -31,19 +31,17 @@ public class MethodExercises {
         return num % num2;
     }
 
-    //using loop to calculate multiplication without using *
+    //using loop to calculate product without using *
     public static int multiplicationLoop(int num, int num2) {
-        int product = 0;
-        for (int i = 0; i < num2; i++) {
-            product += num;
+        int initialValue = num;
+        for (int i = 1; i < num2; num2--) {
+            num += initialValue;
         }
-        return product;
+        return num;
     }
 
+    // using recursion to calculate product without using *
     public static int multiplicationRecursion(int num, int num2) {
-        if (num2 <= 1) {
-            return num;
-        }
-        return num + multiplicationRecursion(num, num2 - 1);
+        return num2 <= 1 ? num : num + multiplicationRecursion(num, num2 - 1);
     }
 }
