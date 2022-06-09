@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class MethodExercises {
     public static void main(String[] args) {
-//        System.out.println("Addition: " + add(5, 3));
-//        System.out.println("Subtraction: " + subtract(5, 3));
-//        System.out.println("Division: " + divide(5, 3));
-//        System.out.println("Modulus: " + modulo(5, 3));
-//        System.out.println("Multiplication: " + multiply(5, 3));
-//        System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
-//        System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
-//        System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
-//        numberFactorial(1, 20);
+        System.out.println("Addition: " + add(5, 3));
+        System.out.println("Subtraction: " + subtract(5, 3));
+        System.out.println("Division: " + divide(5, 3));
+        System.out.println("Modulus: " + modulo(5, 3));
+        System.out.println("Multiplication: " + multiply(5, 3));
+        System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
+        System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
+        System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
+        numberFactorial(1, 20); // calls getInteger method to verify proper integers being used
         diceRoll();
     }
 
@@ -114,7 +114,6 @@ public class MethodExercises {
                     if (again.equals("n")) {
                         break;
                     }
-
                 }
             } else {
                 continue;
