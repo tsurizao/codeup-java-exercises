@@ -10,7 +10,7 @@ public class MethodExercises {
         System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
         System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
         System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
-        System.out.println(getInteger(1, 10));
+        numberFactorial(1, 20);
     }
 
     public static int add(int num, int num2) {
@@ -43,7 +43,7 @@ public class MethodExercises {
     }
 
     //using loop to calculate product without using *
-    public static int multiplicationLoopB(int num, int num2){
+    public static int multiplicationLoopB(int num, int num2) {
         int product = 0;
         for (int i = 0; i < num2; i++) {
             product += num;
@@ -69,7 +69,24 @@ public class MethodExercises {
     }
 
     // factorial of a number
-    public static int numberFactorial (){
-        return 1;
+    public static void numberFactorial(int min, int max) {
+        while (true) {
+            int userInput = getInteger(min, max);
+            long modifiedInput = 1;
+            for (int i = userInput; i > 0; i--) {
+                modifiedInput *= i;
+            }
+            System.out.println(modifiedInput);
+            System.out.println("Would you like to continue? (y/n)");
+            Scanner sc = new Scanner(System.in);
+            String userResponse = sc.next().toLowerCase();
+            if(userResponse.equals("n")){
+                System.out.println("Exiting Loop!");
+                break;
+            } else if (userResponse.equals("y")){
+                System.out.println("Continuing");
+                numberFactorial(min, max);
+            }
+        }
     }
 }
