@@ -37,13 +37,8 @@ public class Bob {
                 System.out.println("Bob: 'Dude, numbers, gross.'");
             } else if (input.contains("done here")) {
                 System.out.println("Bob: 'Smell ya later.'");
-                long exitTime = System.currentTimeMillis();
-                while (true) {
-                    if ((System.currentTimeMillis() - exitTime) / 1000 == 2) {
-                        break;
-                    }
-                }
                 System.out.println("Exiting BobChat v0.834-beta4323, have a nice day!");
+                break;
             } else {
                 System.out.println("Bob: 'Whatever.'");
             }
