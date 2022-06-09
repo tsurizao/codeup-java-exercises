@@ -1,5 +1,9 @@
 public class ExtraExerciseMethods {
     public static void main(String[] args) {
+        // TODO: create a method, sayName, that can take in a single name String input or two name String inputs and will return
+        //  a greeting message to the user by either their first or first and last name.
+        // TODO: overload the addition method from the curriculum exercise to both add integers and add doubles
+
         System.out.println(sayName("Bob"));
         System.out.println(sayName("Bob", "Barker"));
     }
