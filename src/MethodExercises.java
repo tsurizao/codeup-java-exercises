@@ -2,34 +2,34 @@ import java.util.Scanner;
 
 public class MethodExercises {
     public static void main(String[] args) {
-        System.out.println("Addition: " + addition(5, 3));
-        System.out.println("Subtraction: " + subtraction(5, 3));
-        System.out.println("Division: " + division(5, 3));
-        System.out.println("Modulus: " + modulus(5, 3));
-        System.out.println("Multiplication: " + multiplication(5, 3));
+        System.out.println("Addition: " + add(5, 3));
+        System.out.println("Subtraction: " + subtract(5, 3));
+        System.out.println("Division: " + divide(5, 3));
+        System.out.println("Modulus: " + modulo(5, 3));
+        System.out.println("Multiplication: " + multiply(5, 3));
         System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
         System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
         System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
         System.out.println(getInteger(1, 10));
     }
 
-    public static int addition(int num, int num2) {
+    public static int add(int num, int num2) {
         return num + num2;
     }
 
-    public static int subtraction(int num, int num2) {
+    public static int subtract(int num, int num2) {
         return num - num2;
     }
 
-    public static int division(int num, int num2) {
+    public static int divide(int num, int num2) {
         return num / num2;
     }
 
-    public static int modulus(int num, int num2) {
+    public static int modulo(int num, int num2) {
         return num % num2;
     }
 
-    public static int multiplication(int num, int num2) {
+    public static int multiply(int num, int num2) {
         return num * num2;
     }
 
