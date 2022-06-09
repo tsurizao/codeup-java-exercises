@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class MethodExercises {
     public static void main(String[] args) {
-        System.out.println("Addition: " + add(5, 3));
-        System.out.println("Subtraction: " + subtract(5, 3));
-        System.out.println("Division: " + divide(5, 3));
-        System.out.println("Modulus: " + modulo(5, 3));
-        System.out.println("Multiplication: " + multiply(5, 3));
-        System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
-        System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
-        System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
-        numberFactorial(1, 20); // calls getInteger method to verify proper integers being used
+//        System.out.println("Addition: " + add(5, 3));
+//        System.out.println("Subtraction: " + subtract(5, 3));
+//        System.out.println("Division: " + divide(5, 3));
+//        System.out.println("Modulus: " + modulo(5, 3));
+//        System.out.println("Multiplication: " + multiply(5, 3));
+//        System.out.println("Multiplication Loop: " + multiplicationLoopA(5, 3));
+//        System.out.println("Multiplication Loop: " + multiplicationLoopB(5, 3));
+//        System.out.println("Multiplication Recursion: " + multiplicationRecursion(5, 3));
+//        numberFactorial(1, 20); // calls getInteger method to verify proper integers being used
         diceRoll();
     }
 
@@ -107,8 +107,8 @@ public class MethodExercises {
             String roll = sc.next().toLowerCase();
             if (roll.equals("roll")) {
                 while (true) {
-                    System.out.println("Die 1: " + ((int) Math.floor(Math.random() * (numberOfSides - 1 + 1)) + 1));
-                    System.out.println("Die 2: " + ((int) Math.floor(Math.random() * (numberOfSides - 1 + 1)) + 1));
+                    System.out.println("Die 1: " + ((int) Math.floor(Math.random() * (numberOfSides)) + 1));
+                    System.out.println("Die 2: " + ((int) Math.floor(Math.random() * (numberOfSides)) + 1));
                     System.out.println("Would you like to roll again? (y/n)");
                     String again = sc.next().toLowerCase();
                     if (again.equals("n")) {
