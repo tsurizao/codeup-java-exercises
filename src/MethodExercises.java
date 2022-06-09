@@ -67,4 +67,9 @@ public class MethodExercises {
             return getInteger(min, max);
         }
     }
+
+    // factorial of a number
+    public static int numberFactorial (){
+        return 1;
+    }
 }
