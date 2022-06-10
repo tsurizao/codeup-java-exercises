@@ -9,9 +9,12 @@ public class ConsoleRPG {
         //Player stats
         String playerName;
         int playerHealth;
-        int playerStrength;
+        int playerStrength = 0;
+        int playerDamage;
+
         int numberOfPotions = 3;
-        int enemyHealth;
+        int enemyHealth = 100;
+        int enemyDamage = 15;
 
         //Player name creation
         Scanner sc = new Scanner(System.in);
@@ -23,6 +26,7 @@ public class ConsoleRPG {
         while (true) {
             playerHealth = (int) (Math.random() * (100 - 60) + 1) + 60;
             playerStrength = (int) (Math.random() * (20 - 12) + 1) + 12;
+            playerDamage = playerStrength / 2;
             System.out.println("Your stats: \n" + playerHealth + " HP\n" + playerStrength + " STR");
             System.out.println("Type 'yes' to keep stats or type anything else to reroll");
             String userInput = sc.nextLine();
@@ -31,13 +35,24 @@ public class ConsoleRPG {
                 break;
             }
         }
-        System.out.println("\nAlas, " + playerName + ", you've entered the Realms of the Arcane Order");
-        System.out.println("Beware, everything may not be as it appears.");
+        System.out.println("\nAlas, " + playerName + ", you've entered the Realm of the Arcane Order");
+        System.out.println("Beware, you know not of what you will encounter.");
         System.out.println("Type 'help' to view commands.");
+        System.out.println("Enter 'READY' to begin");
+
+        while (true) {
+            if(sc.nextLine().toLowerCase().equals("ready")){
+                break;
+            }
+        }
+
 
         //TODO: need to finish writing out combat mechanics/text output
         while (true) {
+            System.out.println("Player HP: " + playerHealth);
+            System.out.println("Enemy HP: " + enemyHealth);
             String userInput = sc.nextLine().toLowerCase();
+            System.out.println("\nWhat is your action?: ");
             if (userInput.equals("help")) {
                 System.out.println("attack - Attack your enemy with a strength based attack");
                 System.out.println("potion - Use a vial of health");
