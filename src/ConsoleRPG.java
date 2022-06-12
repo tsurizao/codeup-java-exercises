@@ -67,11 +67,11 @@ public class ConsoleRPG {
             }
             if (userInput.equals("run")) {
                 System.out.println("\nYou've fled from combat.");
-                System.out.println("\nYou look up at the sky and cloud spiraling downwards toward you you.");
-                System.out.println("A thundering voice can be heard echoing off in the distance...");
+                System.out.println("\nLooking up at the sky you see a plume of smoke spiraling downwards toward you.");
+                System.out.println("A thundering voice can be heard echoing in the distance...");
                 System.out.println("'...How dare you flee in the face of glorious battle.'");
                 System.out.println("'Though you live, mortal, the gods will not forgive this act of cowardice.'");
-                System.out.println("A giant hand reaches out of the cloud and grabs you.");
+                System.out.println("A giant hand reaches out of the cloud and grabs you.  You feel your sense dull and...");
                 System.out.println("\n...");
                 System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream.");
                 break;
