@@ -51,10 +51,11 @@ public class ConsoleRPG {
         while (true) {
             System.out.println("\nPlayer HP: " + playerHealth + " - Enemy HP: " + enemyHealth);
             if (playerHealth <= 0) {
-                System.out.println("You stagger, confused as you look down and see the pale orc's weapon");
+                System.out.println("You stagger, confused as you look down and see The Pale Orc's weapon");
                 System.out.println("has been impaled through your chest.  Your senses begin to dull as");
+                System.out.println("you hear a guttural victory cry from The Pale Orc standing over you.");
                 System.out.println("everything fades away until there is only is pitch black.");
-                System.out.println("...");
+                System.out.println("\n...");
                 System.out.println("You wake up in a cold sweat, clenching your chest with your hand, you");
                 System.out.println("realize it was just a dream.  It felt so incredibly real!");
                 System.out.println("\nGame Over");
@@ -71,14 +72,14 @@ public class ConsoleRPG {
             if (userInput.equals("a")) {
                 int attackSuccess = (int) (Math.random() * 10);
                 if (attackSuccess > 2) {
-                    System.out.println("Your weapon lands a powerful blow upon your enemy.");
+                    System.out.println("Your weapon lands a powerful blow upon The Pale Orc.");
                     enemyHealth -= playerDamage;
                 } else {
-                    System.out.println("Your attack narrowly misses the enemy.");
+                    System.out.println("Your attack narrowly misses The Pale Orc.");
                 }
                 if (enemyHealth <= 0) {
-                    System.out.println("With one final swing of your sword, you land a deadly blow upon the pale orc.");
-                    System.out.println("The pale orc lets out a death rattle as it falls to the ground in a bloody heap.");
+                    System.out.println("With one final swing of your sword, you land a deadly blow upon The Pale Orc.");
+                    System.out.println("The Pale Orc lets out a death rattle as it falls to the ground in a bloody heap.");
                     System.out.println("Breathing heavily you look to the sky and see a bright light slowly appear.");
                     System.out.println("Gazing upon the light you can make out a humanoid-like figure inside of it");
                     System.out.println("You've done well, " + playerName + ", let this day be remembered for all eternity.");
@@ -92,17 +93,17 @@ public class ConsoleRPG {
                 }
                 int enemyAttackSuccess = (int) (Math.random() * 10);
                 if (enemyAttackSuccess > 3) {
-                    System.out.println("Your enemy has landed a glancing blow on you!");
+                    System.out.println("The Pale Orc has landed a glancing blow on you!");
                     playerHealth -= enemyDamage;
                 } else {
-                    System.out.println("You barely dodge the pale orc's vicious attack");
+                    System.out.println("You barely dodge The Pale Orc's vicious attack");
                 }
             }
             if (userInput.equals("potion")) {
                 if (numberOfPotions <= 0) {
                     System.out.println("You do not have any vials of health left.");
                 } else {
-                    System.out.println("You hastily pull a vial of health from your belt pouch and quaff it down.");
+                    System.out.println("You hastily pull a vial of health from your belt-pouch and quaff it down.");
                     numberOfPotions--;
                     System.out.println("You have " + numberOfPotions + " vials left.");
                     if (playerHealth <= (playerHealthMax - 30)) {
@@ -113,8 +114,8 @@ public class ConsoleRPG {
                 }
             }
             if (userInput.equals("run")) {
-                System.out.println("\nYou've fled from combat.");
-                System.out.println("\nLooking up at the sky you see a plume of smoke spiraling down toward you.");
+                System.out.println("\nYou've fled from combat, leaving The Pale Orc off in the distance.");
+                System.out.println("Looking up at the sky you see a plume of smoke spiraling down toward you.");
                 System.out.println("A thundering voice can be heard echoing in the distance...");
                 System.out.println("'...How dare you flee in the face of glorious battle.'");
                 System.out.println("'Though you live, mortal, the gods will not forgive this act of cowardice.'");
