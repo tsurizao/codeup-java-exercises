@@ -76,7 +76,7 @@ public class ConsoleRPG {
                 } else {
                     System.out.println("Your attack narrowly misses the enemy.");
                 }
-                if(enemyHealth  <= 0){
+                if (enemyHealth <= 0) {
                     System.out.println("With one final swing of your sword, you land a deadly blow upon the pale orc.");
                     System.out.println("The pale orc lets out a death rattle as it falls to the ground in a bloody heap.");
                     System.out.println("Breathing heavily you look to the sky and see a bright light slowly appear.");
@@ -91,21 +91,25 @@ public class ConsoleRPG {
                     break;
                 }
                 int enemyAttackSuccess = (int) (Math.random() * 10);
-                if(enemyAttackSuccess > 3){
+                if (enemyAttackSuccess > 3) {
                     System.out.println("Your enemy has landed a glancing blow on you!");
                     playerHealth -= enemyDamage;
-                } else{
+                } else {
                     System.out.println("You barely dodge the pale orc's vicious attack");
                 }
             }
             if (userInput.equals("potion")) {
-                System.out.println("You hastily pull a vial of health from your belt pouch and quaff it down.");
-                numberOfPotions--;
-                System.out.println("You have " + numberOfPotions + " potions left.");
-                if(playerHealth <= (playerHealthMax - 30)) {
-                    playerHealth += 33;
+                if (numberOfPotions <= 0) {
+                    System.out.println("You do not have any vials of health left.");
                 } else {
-                    playerHealth = playerHealthMax;
+                    System.out.println("You hastily pull a vial of health from your belt pouch and quaff it down.");
+                    numberOfPotions--;
+                    System.out.println("You have " + numberOfPotions + " vials left.");
+                    if (playerHealth <= (playerHealthMax - 30)) {
+                        playerHealth += 33;
+                    } else {
+                        playerHealth = playerHealthMax;
+                    }
                 }
             }
             if (userInput.equals("run")) {
