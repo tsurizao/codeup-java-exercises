@@ -20,10 +20,12 @@ public class ConsoleRPG {
         System.out.println("Where are you?");
         System.out.println("You slowly come to feel at ease as you listen to the sound of waves lapping");
         System.out.println("against the glistening sand.  In the near distance a great mountain stands tall");
-        System.out.println("against the shore.  As you gaze upon the great mountain you hear a low voice");
-        System.out.println("behind you.  'Ahhh, so this is who the gods have sent.'");
-        System.out.println("'I will give you a moment to prepare yourself, the gods can be only have one'");
-        System.out.println("'Champion, and I plan on leaving here today as the one.'");
+        System.out.println("jutting out of the sea.  Gazing upon the great mountain you hear a low voice");
+        System.out.println("behind you.");
+        System.out.println("'Ahhh, so this is who the gods have sent.'");
+        System.out.println("'I will give you a moment to prepare yourself, the gods can only have one'");
+        System.out.println("'Champion, and I plan on leaving here today as such.'");
+        System.out.println("You notice a mighty sword strapped to your waste.");
 
         //Player name creation
         Scanner sc = new Scanner(System.in);
@@ -56,16 +58,18 @@ public class ConsoleRPG {
             }
         }
 
-        System.out.println("As you turn around you see, standing on a giant rock , a giant half-man");
+        System.out.println("As you turn around you see, standing on a large rock, a giant half-man");
         System.out.println("half-bull looking creature.  The creature jumps down with a resounding");
         System.out.println("thud as it lands on the sand next to you.  He stands two feet taller");
         System.out.println("and appears to weigh three times more than you.  His muscular physique");
-        System.out.println("is impossibly perfect.  He walks around you knees bending back behind him");
-        System.out.println("like an animal.  'I am Jartaruk of the Stonehide clan, champion of gods.'");
-        System.out.println("He tightens his grip on a great bloodstained and battle-worn war axe.");
+        System.out.println("is impossibly impeccable.  He walks a circle around you knees bending");
+        System.out.println("back behind him like an animal.  The great creature stops and beings to speak.");
+        System.out.println("'I am Jartaruk of the Stonehide clan, and champion of the gods.'");
         System.out.println("'The gods like to test their Champion, and I have been their Champion for");
-        System.out.println("'very long time.  I'll make this quick.'  Jartaruk lets out a gut-churning");
-        System.out.println("warcry as he charges towards you!");
+        System.out.println("'very long time.  I'll make this quick.'");
+        System.out.println("He tightens his grip on his great bloodstained and battle-worn war axe.");
+        System.out.println("Jartaruk lets out a gut-churning warcry as he charges towards you!");
+        System.out.println("You unsheath your mighty sword and posture yourself for battle.");
         System.out.println("Type 'help' to view commands.");
 
         //This section represents the actual game being played
@@ -73,14 +77,14 @@ public class ConsoleRPG {
             System.out.println("\nPlayer HP: " + playerHealth + " - Enemy HP: " + enemyHealth);
             //This is the first ending, upon reaching zero health, the game is over.
             if (playerHealth <= 0) {
-                System.out.println("You stagger, confused as you look down and see Jartaruk's weapon");
-                System.out.println("has been impaled through your chest.  Your senses begin to dull as");
+                System.out.println("You stagger, confused as you look down and see Jartaruk's axe");
+                System.out.println("has been impaled into your chest.  Your senses begin to dull as");
                 System.out.println("you hear a guttural victory cry from Jartaruk standing over you.");
-                System.out.println("everything fades away until there is only is pitch black.");
-                System.out.println("You hear a muffle voice saying, 'Nothing personal, great foe.'");
+                System.out.println("Everything fades away until there is only pitch black.");
+                System.out.println("You hear a muffle voice, 'You were an acceptable foe.'");
                 System.out.println("\n...");
-                System.out.println("You wake up in a cold sweat, clenching your chest with your hand, you");
-                System.out.println("realize it was just a dream.  It felt so incredibly real!");
+                System.out.println("You wake up in a cold sweat clenching your chest with your hand.  You");
+                System.out.println("realize it was just a dream.  But, it felt so incredibly real?!");
                 System.out.println("\nGame Over");
                 break;
             }
@@ -98,22 +102,22 @@ public class ConsoleRPG {
             if (userInput.equals("a")) {
                 int attackSuccess = (int) (Math.random() * 10);
                 if (attackSuccess > 2) {
-                    System.out.println("Your weapon lands a powerful blow upon Jartaruk.");
+                    System.out.println("Your weapon slashes Jartaruk.");
                     enemyHealth -= playerDamage;
                 } else {
-                    System.out.println("Your attack narrowly misses Jartaruk.");
+                    System.out.println("Your attack misses Jartaruk.");
                 }
                 // This is the second ending, upon successfully defeating the enemy
                 if (enemyHealth <= 0) {
-                    System.out.println("With one final swing of your sword, you land a deadly blow upon Jartaruk.");
+                    System.out.println("With one final swing of your sword, you land a deadly strike upon Jartaruk.");
                     System.out.println("Jartaruk lets out a death rattle as it falls to the ground in a bloody heap.");
                     System.out.println("Breathing heavily you look to the sky and see a bright light slowly appear.");
-                    System.out.println("Gazing upon the light you can make out a humanoid-like figure inside of it");
+                    System.out.println("Gazing upon the light you hear thundering voice echoing out.");
                     System.out.println("'You've done well, " + playerName + ", let this day be remembered for all eternity.'");
-                    System.out.println("'I now dub thee Champion of Arkatosh!  Go!  Let thy future be bright!'");
-                    System.out.println("'I shall call upon against when the time is right, when you are to be tested.'");
+                    System.out.println("'We now dub thee Champion of Arkatosh!  Go!  Let thy future be bright!'");
+                    System.out.println("'We shall call upon against when the time is right, when you are to be tested.'");
                     System.out.println("As the thundering voice of light slowly echoes out of existence, you begin to");
-                    System.out.println("feel your body floating and a feeling oof nausea comes over you as you're engulfed");
+                    System.out.println("feel your body floating and a feeling of nausea washes over you as you're engulfed");
                     System.out.println("in a blinding light... As you feel your sense begin to dull, everything fades...");
                     System.out.println("\n...");
                     System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream, Champion");
@@ -121,7 +125,7 @@ public class ConsoleRPG {
                 }
                 int enemyAttackSuccess = (int) (Math.random() * 10);
                 if (enemyAttackSuccess > 3) {
-                    System.out.println("Jartaruk has landed a glancing blow on you!");
+                    System.out.println("Jartaruk lands a powerful strike upon you!");
                     playerHealth -= enemyDamage;
                 } else {
                     System.out.println("You barely dodge Jartaruk's vicious attack");
