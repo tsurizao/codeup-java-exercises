@@ -10,9 +10,8 @@ public class ConsoleRPG {
         String playerName;
         int playerHealth;
         int playerHealthMax;
-        int playerStrength = 0;
+        int playerStrength;
         int playerDamage;
-
         int numberOfPotions = 3;
         int enemyHealth = 100;
         int enemyDamage = 15;
@@ -39,7 +38,6 @@ public class ConsoleRPG {
         }
         System.out.println("\nAlas, " + playerName + ", you've entered the Realm of Arkatosh");
         System.out.println("Beware, this place is not as it seems.");
-        System.out.println("Type 'help' to view commands.");
         System.out.println("Enter 'READY' to begin");
 
         while (true) {
@@ -47,30 +45,34 @@ public class ConsoleRPG {
                 break;
             }
         }
-
+        System.out.println("Type 'help' to view commands.");
 
         //TODO: need to finish writing out combat mechanics/text output
         while (true) {
             System.out.println("\nPlayer HP: " + playerHealth + " - Enemy HP: " + enemyHealth);
             if (playerHealth <= 0) {
-                System.out.println("\nYOU DIED!");
-                System.out.println("Game Over");
+                System.out.println("You stagger, confused as you look down and see the pale orc's weapon");
+                System.out.println("has been impaled through your chest.  Your senses begin to dull as");
+                System.out.println("everything fades away until there is only is pitch black.");
+                System.out.println("...");
+                System.out.println("You wake up in a cold sweat, clenching your chest with your hand, you");
+                System.out.println("realize it was just a dream.  It felt so incredibly real!");
+                System.out.println("\nGame Over");
                 break;
             }
-            String userInput = sc.nextLine().toLowerCase();
             System.out.println("\nWhat is your action?: ");
+            String userInput = sc.nextLine().toLowerCase();
             if (userInput.equals("help")) {
-                System.out.println("attack - Attack your enemy with a strength based attack");
-                System.out.println("potion - Use a vial of health");
+                System.out.println("a - Attack your enemy with a strength based attack");
+                System.out.println("potion - Use one of your 3 vials of health");
                 System.out.println("run - Flee from battle");
                 continue;
             }
-            if (userInput.equals("attack")) {
-                System.out.println("attacking");
+            if (userInput.equals("a")) {
                 int attackSuccess = (int) (Math.random() * 10);
-                System.out.println(attackSuccess);
                 if (attackSuccess > 2) {
                     System.out.println("Your weapon lands a powerful blow upon your enemy.");
+                    enemyHealth -= playerDamage;
                 } else {
                     System.out.println("Your attack narrowly misses the enemy.");
                 }
@@ -88,18 +90,18 @@ public class ConsoleRPG {
                     System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream, Champion");
                     break;
                 }
-                int enemyAttack = (int) (Math.random() * 10);
-                if(enemyAttack > 3){
+                int enemyAttackSuccess = (int) (Math.random() * 10);
+                if(enemyAttackSuccess > 3){
                     System.out.println("Your enemy has landed a glancing blow on you!");
-                    playerHealth -= 10;
+                    playerHealth -= enemyDamage;
                 } else{
                     System.out.println("You barely dodge the pale orc's vicious attack");
                 }
             }
             if (userInput.equals("potion")) {
-                System.out.println("You hastily pull a potion from your belt pouch and quaff it down.");
-                System.out.println("You have " + numberOfPotions + " potions left.");
+                System.out.println("You hastily pull a vial of health from your belt pouch and quaff it down.");
                 numberOfPotions--;
+                System.out.println("You have " + numberOfPotions + " potions left.");
                 if(playerHealth <= (playerHealthMax - 30)) {
                     playerHealth += 33;
                 } else {
