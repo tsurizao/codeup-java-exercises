@@ -5,8 +5,7 @@ public class Square extends Rectangle {
     private int side;
 
     public Square(int side) {
-        super.setLength(side);
-        super.setWidth(side);
+        this.side = side;
     }
 
     @Override
