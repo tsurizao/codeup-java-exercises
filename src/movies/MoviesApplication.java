@@ -27,8 +27,8 @@ public class MoviesApplication {
                 break;
             } else if (input == 1) {
                 System.out.println(UPPER_FRAME);
-                for (int i = 0; i < moviesArr.length; i++) {
-                    System.out.println(moviesArr[i].getName());
+                for (Movie movie : moviesArr) {
+                    System.out.println(movie.getName());
                 }
                 System.out.println(LOWER_FRAME);
             } else if (input == 2) {
