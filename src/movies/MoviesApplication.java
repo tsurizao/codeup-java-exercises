@@ -6,9 +6,12 @@ import java.util.Arrays;
 
 public class MoviesApplication {
     public static void main(String[] args) {
+        // FINAL variables to frame output, easier to read output
         final String UPPER_FRAME = "=======================\nHere are your movies\n=======================";
         final String LOWER_FRAME = "=======================";
         Movie[] moviesArr = MoviesArray.findAll();
+
+        //Loop breaks only when choosing option "0" to exit
         while (true) {
             System.out.println("What would you like to do?");
             System.out.println("0 - Exit");
@@ -59,6 +62,8 @@ public class MoviesApplication {
                         System.out.println(movie.name);
                     }
                 }
+                // The following else-if prompts user for a movie title and category then calls the addMovie
+                // method to create a new array with the new movie in it.
             } else if (input == 6) {
                 System.out.println("Please enter the movie title: ");
                 String newMovieTitle = new Input().getString();
@@ -70,7 +75,7 @@ public class MoviesApplication {
             }
         }
     }
-
+    // This function takes the original movie array and creates a new array plus an additional movie
     public static Movie[] addMovie(Movie[] arr, String name, String category) {
         Movie[] newMovies = Arrays.copyOf(arr, arr.length);
         newMovies[newMovies.length - 1].name = name;
