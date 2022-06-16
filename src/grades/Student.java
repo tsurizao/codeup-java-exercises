@@ -26,8 +26,8 @@ public class Student {
     public double getGradeAverage() {
         double listItems = grades.size();
         double gradesTotal = 0;
-        for (int i = 0; i < grades.size(); i++) {
-            gradesTotal += grades.get(i);
+        for (Integer grade : grades) {
+            gradesTotal += grade;
         }
         return gradesTotal/listItems;
     }
