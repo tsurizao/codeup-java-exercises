@@ -1,6 +1,7 @@
 package util;
 
 import java.util.Scanner;
+
 public class Input {
     private Scanner scanner;
 
@@ -19,7 +20,7 @@ public class Input {
 
     public int getInt(int min, int max) {
         int input = min - 1;
-        while (input > max || input < min){
+        while (input > max || input < min) {
             System.out.println("Enter an integer between " + min + " and " + max + ".");
 
             input = scanner.nextInt();
@@ -28,12 +29,17 @@ public class Input {
     }
 
     public int getInt() {
-        return scanner.nextInt();
+        try {
+            return Integer.valueOf(getString());
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect type entered, please use an Integer");
+            return getInt();
+        }
     }
 
     public double getDouble(double min, double max) {
         double input = min - 1;
-        while (input > max || input < min){
+        while (input > max || input < min) {
             System.out.println("Enter an double between " + min + " and " + max + ".");
             input = scanner.nextDouble();
         }
@@ -41,6 +47,11 @@ public class Input {
     }
 
     public double getDouble() {
-        return scanner.nextDouble();
+        try {
+            return Double.valueOf(getString());
+        } catch (NumberFormatException e) {
+            System.out.println("Incorrect type entered, please use a Double");
+            return getDouble();
+        }
     }
 }
