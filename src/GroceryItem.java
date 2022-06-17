@@ -26,7 +26,6 @@ public class GroceryItem {
     }
 
     public void getItemInfo() {
-        System.out.println("==========");
         System.out.println("Name: " + name);
         System.out.println("Category: " + category);
         System.out.println("Quantity: " + quantity);
