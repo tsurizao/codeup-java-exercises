@@ -20,7 +20,7 @@ public class GroceryListApp {
             String userInput = sc.nextLine();
             // Application exits
             if (userInput.equals("0")) {
-                System.out.println("Goodbye, have a wonderful day!");
+                System.out.println("\nGoodbye, have a wonderful day!");
                 break;
             } else if (userInput.equals("1")) {
                 //Sub-menu to add an item by category to grocery list
@@ -28,7 +28,7 @@ public class GroceryListApp {
                     String name = "";
                     String category = "";
                     int quantity = 0;
-                    System.out.println("Please choose a product category: ");
+                    System.out.println("\nPlease choose a product category: ");
                     System.out.println("1 - Food and Drinks");
                     System.out.println("2 - Sports and Outdoors");
                     System.out.println("3 - Entertainment");
@@ -38,7 +38,7 @@ public class GroceryListApp {
                     switch (userInput) {
                         case "1":
                             category = "Food and Drinks";
-                            System.out.println("Enter the name of your Food and Drinks item");
+                            System.out.println("\nEnter the name of your Food and Drinks item");
                             name = sc.nextLine();
                             System.out.println("Enter the quantity of this item you would like to add");
                             quantity = parseInt(sc.nextLine());
@@ -46,15 +46,15 @@ public class GroceryListApp {
                             break;
                         case "2":
                             category = "Sports and Outdoors";
-                            System.out.println("Enter the name of your Sports and Outdoors item");
+                            System.out.println("\nEnter the name of your Sports and Outdoors item:");
                             name = sc.nextLine();
-                            System.out.println("Enter the quantity of this item you would like to add");
+                            System.out.println("Enter the quantity of this item you would like to add:");
                             quantity = parseInt(sc.nextLine());
                             System.out.println("You've added: \nName: " + name + "\nCategory: " + category + "\nQuantity: " + quantity);
                             break;
                         case "3":
                             category = "Entertainment";
-                            System.out.println("Enter the name of your Entertainment item");
+                            System.out.println("\nEnter the name of your Entertainment item");
                             name = sc.nextLine();
                             System.out.println("Enter the quantity of this item you would like to add");
                             quantity = parseInt(sc.nextLine());
@@ -67,8 +67,9 @@ public class GroceryListApp {
                     break;
                 }
             } else if (userInput.equals("2")) {
-                System.out.println("Editing not available at the moment.  Sorry for the inconvenience.");
+                System.out.println("\nEditing not available at the moment.  Sorry for the inconvenience.");
             } else if (userInput.equals("3")) {
+                System.out.println();
                 for (int i = 0; i < yourList.size(); i++) {
                     yourList.get(i).getItemInfo();
                 }
