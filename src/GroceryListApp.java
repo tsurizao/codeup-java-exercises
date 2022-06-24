@@ -13,7 +13,7 @@ public class GroceryListApp {
             // Prints the main menu
             printMainMenu();
             String userInput = sc.nextLine();
-            // Application exits via entering  0
+            // Application exits via entering 0
             switch (userInput) {
                 case "0":
                     exitApplication();
@@ -25,12 +25,15 @@ public class GroceryListApp {
                     //Sub-menu utilizes addItem() method to handle item fields and return GroceryItem object
                     switch (userInput) {
                         case "1":
+                            // Food and Drinks
                             yourList.add(addItem(1));
                             break;
                         case "2":
+                            // Sports and Outdoors
                             yourList.add(addItem(2));
                             break;
                         case "3":
+                            // Entertainment
                             yourList.add(addItem(3));
                             break;
                         case "0":
@@ -53,6 +56,7 @@ public class GroceryListApp {
     }
 
     // Methods created for program as follows
+
     // Exits the program
     public static void exitApplication() {
         System.out.println("\nGoodbye, have a wonderful day!");
@@ -83,7 +87,7 @@ public class GroceryListApp {
     }
 
     // Handles editing existing items in yourList of GroceryItem
-    public static GroceryItem editItem(int choice, GroceryItem item) {
+    public static void editItem(int choice, GroceryItem item) {
         String newCategory;
         Scanner sc = new Scanner(System.in);
         if (choice == 1) {
@@ -103,7 +107,6 @@ public class GroceryListApp {
             System.out.println("Enter the new quantity of the item: ");
             item.setQuantity(parseInt(sc.nextLine()));
         }
-        return item;
     }
 
     // Handles removing items from your grocery list
@@ -170,6 +173,7 @@ public class GroceryListApp {
                 0 - Skip""");
     }
 
+    // Prints all items and their fields
     public static void printGroceryList(ArrayList<GroceryItem> list) {
         System.out.println();
         for (GroceryItem groceryItem : list) {
