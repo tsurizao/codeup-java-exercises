@@ -46,7 +46,8 @@ public class GroceryListApp {
                     printGroceryList(yourList);
                     break;
                 case "4":
-
+                    removeItem(yourList);
+                    break;
             }
         }
     }
@@ -105,6 +106,24 @@ public class GroceryListApp {
         return item;
     }
 
+    // Handles removing items from your grocery list
+    public static void removeItem(ArrayList<GroceryItem> list) {
+        System.out.println("Enter the item you would like to remove: ");
+        Scanner sc = new Scanner(System.in);
+        String itemToDelete = sc.nextLine().toLowerCase();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getName().toLowerCase().contains(itemToDelete)) {
+                System.out.println("Is this the item you would like to remove? (Y/N)");
+                list.get(i).getItemInfo();
+                String choice = sc.nextLine();
+                if (choice.equalsIgnoreCase("y")) {
+                    System.out.println(list.get(i).getName() + " has been removed.");
+                    list.remove(list.get(i));
+                }
+            }
+        }
+    }
+
     // Handles iterating through your list and finding the item you want to edit
     public static void cycleThroughItems(ArrayList<GroceryItem> list) {
         Scanner sc = new Scanner(System.in);
@@ -148,7 +167,7 @@ public class GroceryListApp {
                 1 - Item Name
                 2 - Item Category
                 3 - Item Quantity
-                0 - Back to main menu""");
+                0 - Skip""");
     }
 
     public static void printGroceryList(ArrayList<GroceryItem> list) {
