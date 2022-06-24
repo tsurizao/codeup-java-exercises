@@ -68,14 +68,24 @@ public class GroceryListApp {
                 }
             } else if (userInput.equals("2")) {
                 System.out.println("Enter the name or category of the item would you like to edit?");
-                String itemToBeEdited = sc.nextLine();
+                String editInput = sc.nextLine();
                 for (GroceryItem groceryItem : yourList) {
-                    if (itemToBeEdited.equalsIgnoreCase(groceryItem.getName())) {
+                    if ((groceryItem.getName().equalsIgnoreCase(editInput))) {
+                        groceryItem.getItemInfo();
                         System.out.println("What would you like to edit?" +
                                 "1 - Item Name" +
                                 "2 - Item Category" +
                                 "3 - Item Quantity" +
                                 "0 - Back to main menu");
+                        if(editInput.equals("1")){
+
+                        } else if (editInput.equals("2")){
+
+                        } else if (editInput.equals("3")){
+
+                        } else if (editInput.equals("0")){
+                            break;
+                        }
                     }
                 }
             } else if (userInput.equals("3")) {
