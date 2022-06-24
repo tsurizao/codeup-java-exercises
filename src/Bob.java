@@ -23,7 +23,6 @@ public class Bob {
         System.out.println("Talk to Bob, ask him a question, yell at him or say nothing at all.");
         System.out.println("You can also say \"done here\" to exit the program. \n");
 
-
         while (true) {
             String input = sc.nextLine();
             if (input.endsWith("?")) {

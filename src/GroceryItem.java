@@ -25,6 +25,14 @@ public class GroceryItem {
         this.quantity = quantity;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
     public void getItemInfo() {
         System.out.println("Name: " + name);
         System.out.println("Category: " + category);
