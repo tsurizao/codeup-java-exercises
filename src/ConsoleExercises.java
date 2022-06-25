@@ -1,5 +1,3 @@
-import javax.crypto.spec.PSource;
-import java.text.ParseException;
 import java.util.Scanner;
 
 public class ConsoleExercises {
@@ -24,8 +22,7 @@ public class ConsoleExercises {
         String secondWord = scanner.next();
         System.out.println("Enter a final word: ");
         String thirdWord = scanner.next();
-        System.out.printf("%n%s %n%s %n%s", firstWord, secondWord, thirdWord);
-        System.out.println("");
+        System.out.printf("%n%s %n%s %n%s\n", firstWord, secondWord, thirdWord);
 
         //2.3 & 2.4
         System.out.println("Enter a sentence: ");
