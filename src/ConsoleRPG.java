@@ -10,15 +10,7 @@ public class ConsoleRPG {
         ConsoleFoe enemy = new ConsoleFoe();
 
         // Game intro
-        System.out.println("\nAs you rouse from a blur of light, color and sound, you feel lost.");
-        System.out.println("You slowly feel at ease as you listen to the sound of waves lapping");
-        System.out.println("against the glistening sand.  In the near distance a great mountain stands tall");
-        System.out.println("jutting out of the sea.  Gazing upon the great mountain you hear a deep-gristly voice");
-        System.out.println("behind you.");
-        System.out.println("'Ahhh, so this is who the gods have sent.'");
-        System.out.println("'I will give you a moment to prepare yourself, the gods can only have one'");
-        System.out.println("'Champion, and I plan on leaving here today as such.'");
-        System.out.println("You notice a mighty sword strapped to your waste.");
+        printIntro();
 
         //Player name creation
         Scanner sc = new Scanner(System.in);
@@ -58,12 +50,12 @@ public class ConsoleRPG {
         System.out.println("and appears to weigh three times more than you.  His muscular physique");
         System.out.println("is impossibly impeccable.  He walks a circle around you knees bending");
         System.out.println("back behind him like an animal.  The great creature stops and beings to speak.");
-        System.out.println("'I am Jartaruk of the Stonehide clan, and champion of the gods.'");
-        System.out.println("'The gods like to test their Champion, and I have been their Champion for");
-        System.out.println("'very long time.  I'll make this quick.'");
-        System.out.println("He tightens his grip on his great bloodstained and battle-worn war axe.");
-        System.out.println("Jartaruk lets out a gut-churning warcry as he charges towards you!");
-        System.out.println("You unsheath your mighty sword and posture yourself for battle.");
+        System.out.println("\n'I am " + enemy.getName() + " of the " + enemy.getClan() + " clan, and champion of the gods.'");
+        System.out.println("\n'The gods like to test their Champion, and I have been their Champion for");
+        System.out.println("\n'very long time.  Let us make this quick.'");
+        System.out.println("\nHe tightens his grip on his great bloodstained and battle-worn war axe.");
+        System.out.println(enemy.getName() + " lets out a gut-churning warcry as he charges towards you!");
+        System.out.println("You unsheath your mighty sword and posture yourself for combat.");
         System.out.println("Type 'help' to view commands.");
 
         //This section represents the actual game being played
@@ -96,7 +88,7 @@ public class ConsoleRPG {
             }
             //If player chooses to escape the battle instead of fight.  This is the third ending.
             if (userInput.equals("run")) {
-                printRunEnding();
+                printRunEnding(enemy);
                 break;
             }
             //This is a hidden way to leave the game, fourth ending.
@@ -107,8 +99,20 @@ public class ConsoleRPG {
         }
     }
 
-    public static void printRunEnding() {
-        System.out.println("\nYou've fled from combat, leaving Jartaruk off in the distance.");
+    public static void printIntro() {
+        System.out.println("\nYour mind rouses in the midst of dancing lights, colors and");
+        System.out.println("sounds.  You feel at ease as you listen to the sound of waves lapping");
+        System.out.println("against a glistening beach.  Finally, coming to a tolerable mental state you");
+        System.out.println("see in the distance a great mountain standing tall jutting out of the sea.");
+        System.out.println("Gazing upon the great mountain you hear a deep-gristly voice behind you...");
+        System.out.println("\n'So, this is the hero the Elder Gods have summoned.'");
+        System.out.println("\n'I will give you a moment to prepare yourself, mortal.");
+        System.out.println("\n'The gods can only have one Champion'");
+        System.out.println("\nYou notice a finely-crafted sword strapped to your waste.");
+    }
+
+    public static void printRunEnding(ConsoleFoe enemy) {
+        System.out.println("\nYou've fled from combat, leaving " + enemy.getName() + " off in the distance.");
         System.out.println("Looking up at the sky you see a plume of smoke spiraling down toward you.");
         System.out.println("A thundering voice can be heard echoing in the distance...");
         System.out.println("'...How dare you flee in the face of glorious battle.'");
@@ -128,15 +132,17 @@ public class ConsoleRPG {
 
     public static void printWinEnding(ConsolePlayer player, ConsoleFoe enemy) {
         System.out.println("With one final swing of your sword, you land a deadly strike upon " + enemy.getName() + ".");
+        System.out.println("As you feel your weapon sink deeply into " + enemy.getName() + "'s chest, his");
+        System.out.println("massive war axe narrowly misses your throat as it careens passed your body.");
         System.out.println(enemy.getName() + " lets out a death rattle as it falls to the ground in a bloody heap.");
-        System.out.println("Breathing heavily you look to the sky and see a bright light slowly appear.");
-        System.out.println("Gazing upon the light you hear thundering voice echoing out.");
-        System.out.println("'You've done well, " + player.getName() + ", let this day be remembered for all eternity.'");
+        System.out.println("Breathing heavily and looking at the sky and see a bright light slowly appear.");
+        System.out.println("Gazing upon the light you hear thundering voices echoing out.");
+        System.out.println("'You've done well, " + player.getName() + ", let this day be remembered.'");
         System.out.println("'We now dub thee Champion of the Elder Gods!  Go!  Let thy future be bright!'");
-        System.out.println("'We shall call upon against when the time is right, when you are to be tested.'");
-        System.out.println("As the thundering voice of light slowly echoes out of existence, you begin to");
+        System.out.println("'We shall call upon you again to re-enter the arena when the time is right'");
+        System.out.println("As the thundering voices slowly echo out of existence, you begin to");
         System.out.println("feel your body floating and a feeling of nausea washes over you as you're engulfed");
-        System.out.println("in a blinding light... As you feel your sense begin to dull, everything fades...");
+        System.out.println("in a blinding light... As your senses begin to dull, everything fades...");
         System.out.println("\n...");
         System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream, Champion");
     }
@@ -185,6 +191,7 @@ public class ConsoleRPG {
         // This is the second ending, upon successfully defeating the enemy
         if (enemy.getHealth() <= 0) {
             printWinEnding(player, enemy);
+            return;
         }
         int enemyAttackSuccess = (int) (Math.random() * 10);
         if (enemyAttackSuccess > 3) {
