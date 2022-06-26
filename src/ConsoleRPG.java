@@ -8,54 +8,64 @@ public class ConsoleRPG {
     public static void runGame() {
         Scanner sc = new Scanner(System.in);
         ConsolePlayer player = new ConsolePlayer();
-        ConsoleFoe enemy = new ConsoleFoe();
+        ConsoleFoe foe = new ConsoleFoe();
         printIntro();
         characterCreation(player);
         playerReadyCheck(player);
-        System.out.println(enemy.getIntroDescription());
+        System.out.println(foe.getIntroDescription());
 
-        //This section represents the actual game being played
+        // Game loop
         while (true) {
-            System.out.println("\nPlayer HP: " + player.getHealth() + " - Enemy HP: " + enemy.getHealth());
-            //This is the first ending, upon reaching zero health, the game is over.
+            // Prints the current health points of player and foe
+            printStatusBar(player, foe);
+
+            // First ending, upon player reaching zero health, the game is over.
             if (player.getHealth() <= 0) {
-                printPlayerDeathEnding(enemy);
+                printPlayerDeathEnding(foe);
                 break;
             }
-            //Help menu when the command "help" is entered
+
+            // Help menu when the command "help" is entered
             System.out.println("\nWhat is your action?: ");
             String userInput = sc.nextLine().toLowerCase();
+
             if (userInput.equals("help")) {
                 printHelpMenu();
                 continue;
             }
-            //Combat is based on a success chance, enemy damage is a fixed 15, player damage is strength
-            //stat divided by 2, occurs upon entering "a"
-            if (userInput.equals("a")) {
-                attackFoe(player, enemy);
-                if (enemy.getHealth() <= 0) {
+
+            // Combat options 'a', 'potion' and 'run' (hidden command 'wake')
+            if (userInput.equals("a") || userInput.equals("attack")) {
+                attackFoe(player, foe);
+                if (foe.getHealth() <= 0) {
                     break;
                 }
-                ;
             }
-            //Health potions, removes a potion from inventory and restores 33 hp
+
+            // Health potions, removes a potion from inventory and restores 33 hp
             if (userInput.equals("potion")) {
                 usePotion(player);
             }
-            //If player chooses to escape the battle instead of fight.  This is the third ending.
+
+            //  If player chooses to escape the battle instead of fight.  This is the third ending.
             if (userInput.equals("run")) {
-                printRunEnding(enemy);
+                printRunEnding(foe);
                 break;
             }
-            //This is a hidden way to leave the game, fourth ending.
+
+            // This is a hidden way to leave the game, fourth ending.
             if (userInput.equals("wake")) {
-                printWakeEnding(enemy);
+                printWakeEnding(foe);
                 break;
             }
         }
     }
 
     // Game mechanics methods
+    public static void printStatusBar(ConsolePlayer player, ConsoleFoe foe){
+        System.out.println("\nPlayer HP: " + player.getHealth() + " - Enemy HP: " + foe.getHealth());
+
+    }
     public static void printIntro() {
         System.out.println("\nYour mind rouses in the midst of dancing lights, colors and");
         System.out.println("sounds.  You feel at ease as you listen to the sound of waves lapping");
@@ -68,8 +78,8 @@ public class ConsoleRPG {
         System.out.println("\nYou notice a finely-crafted sword strapped to your waste.");
     }
 
-    public static void printRunEnding(ConsoleFoe enemy) {
-        System.out.println("\nYou've fled from combat, leaving " + enemy.getName() + " off in the distance.");
+    public static void printRunEnding(ConsoleFoe foe) {
+        System.out.println("\nYou've fled from combat, leaving " + foe.getName() + " off in the distance.");
         System.out.println("Looking up at the sky you see a plume of smoke spiraling down toward you.");
         System.out.println("A thundering voice can be heard echoing in the distance...");
         System.out.println("'...How dare you flee in the face of glorious battle.'");
@@ -79,19 +89,19 @@ public class ConsoleRPG {
         System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream.  Coward.");
     }
 
-    public static void printWakeEnding(ConsoleFoe enemy) {
+    public static void printWakeEnding(ConsoleFoe foe) {
         System.out.println("As dawn breaks the horizon, you wake up to a ray of sunlight filtering through the");
         System.out.println("blinds of your bedroom.  You get out of your bed, knocking something off your night");
-        System.out.println("stand.  You pick up a book, '" + enemy.getName() + " of " + enemy.getClan() + "' and set it back on the night stand.");
+        System.out.println("stand.  You pick up a book, '" + foe.getName() + " of " + foe.getClan() + "' and set it back on the night stand.");
         System.out.println("You get up and head off, eager to start your morning.");
         System.out.println("Congratulations, you've found the secret ending.");
     }
 
-    public static void printWinEnding(ConsolePlayer player, ConsoleFoe enemy) {
-        System.out.println("With one final swing of your sword, you land a deadly strike upon " + enemy.getName() + ".");
-        System.out.println("As you feel your weapon sink deeply into " + enemy.getName() + "'s chest, his");
+    public static void printWinEnding(ConsolePlayer player, ConsoleFoe foe) {
+        System.out.println("With one final swing of your sword, you land a deadly strike upon " + foe.getName() + ".");
+        System.out.println("As you feel your weapon sink deeply into " + foe.getName() + "'s chest, his");
         System.out.println("massive war axe narrowly misses your throat as it careens passed your body.");
-        System.out.println(enemy.getName() + " lets out a death rattle as it falls to the ground in a bloody heap.");
+        System.out.println(foe.getName() + " lets out a death rattle as it falls to the ground in a bloody heap.");
         System.out.println("Breathing heavily and looking at the sky and see a bright light slowly appear.");
         System.out.println("Gazing upon the light you hear thundering voices echoing out.");
         System.out.println("'You've done well, " + player.getName() + ", let this day be remembered.'");
@@ -104,10 +114,10 @@ public class ConsoleRPG {
         System.out.println("Staring at the ceiling of your bedroom, you realize, it was all a dream, Champion");
     }
 
-    public static void printPlayerDeathEnding(ConsoleFoe enemy) {
-        System.out.println("You stagger, confused as you look down and see " + enemy.getName() + "'s axe");
+    public static void printPlayerDeathEnding(ConsoleFoe foe) {
+        System.out.println("You stagger, confused as you look down and see " + foe.getName() + "'s axe");
         System.out.println("has been impaled into your chest.  Your senses begin to dull as");
-        System.out.println("you hear a guttural victory cry from " + enemy.getName() + " standing over you.");
+        System.out.println("you hear a guttural victory cry from " + foe.getName() + " standing over you.");
         System.out.println("Everything fades away until there is only pitch black.");
         System.out.println("You hear a muffle voice, 'You were an acceptable foe.'");
         System.out.println("\n...");
@@ -137,25 +147,25 @@ public class ConsoleRPG {
         }
     }
 
-    public static void attackFoe(ConsolePlayer player, ConsoleFoe enemy) {
+    public static void attackFoe(ConsolePlayer player, ConsoleFoe foe) {
         int attackSuccess = (int) (Math.random() * 10);
         if (attackSuccess > 2) {
-            System.out.println("Your weapon slashes " + enemy.getName() + ".");
-            enemy.setHealth(enemy.getHealth() - player.getDamage());
+            System.out.println("Your weapon slashes " + foe.getName() + ".");
+            foe.setHealth(foe.getHealth() - player.getDamage());
         } else {
-            System.out.println("Your attack misses " + enemy.getName() + ".");
+            System.out.println("Your attack misses " + foe.getName() + ".");
         }
         // This is the second ending, upon successfully defeating the enemy
-        if (enemy.getHealth() <= 0) {
-            printWinEnding(player, enemy);
+        if (foe.getHealth() <= 0) {
+            printWinEnding(player, foe);
             return;
         }
         int enemyAttackSuccess = (int) (Math.random() * 10);
         if (enemyAttackSuccess > 3) {
-            System.out.println(enemy.getName() + " lands a powerful strike upon you!");
-            player.setHealth(player.getHealth() - enemy.getDamage());
+            System.out.println(foe.getName() + " lands a powerful strike upon you!");
+            player.setHealth(player.getHealth() - foe.getDamage());
         } else {
-            System.out.println("You barely dodge " + enemy.getName() + "'s vicious attack");
+            System.out.println("You barely dodge " + foe.getName() + "'s vicious attack");
         }
     }
 
