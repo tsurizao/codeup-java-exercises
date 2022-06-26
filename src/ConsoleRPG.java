@@ -6,57 +6,13 @@ public class ConsoleRPG {
     }
 
     public static void runGame() {
+        Scanner sc = new Scanner(System.in);
         ConsolePlayer player = new ConsolePlayer();
         ConsoleFoe enemy = new ConsoleFoe();
-
-        // Game intro
         printIntro();
-
-        //Player name creation
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name of your hero: ");
-        player.setName(sc.nextLine());
-
-        //Player stat dice roll
-        //Loop allows user to re-roll until stats are satisfactory
-        System.out.println(player.getName() + "'s stats are as follows...");
-        while (true) {
-            int playerHealth = (int) (Math.random() * (100 - 60) + 1) + 60;
-            int playerStrength = (int) (Math.random() * (20 - 12) + 1) + 12;
-            System.out.println("Your stats: \n" + playerHealth + " HP\n" + playerStrength + " STR");
-            System.out.println("Enter 'yes' to keep these stats or enter anything else to reroll");
-            String userInput = sc.nextLine();
-            if (userInput.equals("yes")) {
-                player.setHealth(playerHealth);
-                player.setHealthMax(playerHealth);
-                player.setDamage(playerStrength / 2);
-                break;
-            }
-        }
-
-        //Game ready prompt
-        System.out.println("\nAlas, " + player.getName() + ", you've entered the Battlegrounds of the Elder Gods");
-        System.out.println("Beware, this place is not as it seems.");
-        System.out.println("Enter 'READY' to begin");
-        while (true) {
-            if (sc.nextLine().equalsIgnoreCase("ready")) {
-                break;
-            }
-        }
-
-        System.out.println("As you turn around you see, standing on a large rock, a giant half-man");
-        System.out.println("half-bull looking creature.  The creature jumps down with a resounding");
-        System.out.println("thud as it lands on the sand next to you.  He stands two feet taller");
-        System.out.println("and appears to weigh three times more than you.  His muscular physique");
-        System.out.println("is impossibly impeccable.  He walks a circle around you knees bending");
-        System.out.println("back behind him like an animal.  The great creature stops and beings to speak.");
-        System.out.println("\n'I am " + enemy.getName() + " of the " + enemy.getClan() + " clan, and champion of the gods.'");
-        System.out.println("\n'The gods like to test their Champion, and I have been their Champion for");
-        System.out.println("\n'very long time.  Let us make this quick.'");
-        System.out.println("\nHe tightens his grip on his great bloodstained and battle-worn war axe.");
-        System.out.println(enemy.getName() + " lets out a gut-churning warcry as he charges towards you!");
-        System.out.println("You unsheath your mighty sword and posture yourself for combat.");
-        System.out.println("Type 'help' to view commands.");
+        characterCreation(player);
+        playerReadyCheck(player);
+        System.out.println(enemy.getIntroDescription());
 
         //This section represents the actual game being played
         while (true) {
@@ -99,6 +55,7 @@ public class ConsoleRPG {
         }
     }
 
+    // Game mechanics methods
     public static void printIntro() {
         System.out.println("\nYour mind rouses in the midst of dancing lights, colors and");
         System.out.println("sounds.  You feel at ease as you listen to the sound of waves lapping");
@@ -199,6 +156,38 @@ public class ConsoleRPG {
             player.setHealth(player.getHealth() - enemy.getDamage());
         } else {
             System.out.println("You barely dodge " + enemy.getName() + "'s vicious attack");
+        }
+    }
+
+    public static void characterCreation(ConsolePlayer player) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name of your hero: ");
+        player.setName(sc.nextLine());
+        System.out.println(player.getName() + "'s stats are as follows...");
+        while (true) {
+            int playerHealth = (int) (Math.random() * (100 - 60) + 1) + 60;
+            int playerStrength = (int) (Math.random() * (20 - 12) + 1) + 12;
+            System.out.println("Your stats: \n" + playerHealth + " HP\n" + playerStrength + " STR");
+            System.out.println("Enter 'yes' to keep these stats or enter anything else to reroll");
+            String userInput = sc.nextLine();
+            if (userInput.equals("yes")) {
+                player.setHealth(playerHealth);
+                player.setHealthMax(playerHealth);
+                player.setDamage(playerStrength / 2);
+                break;
+            }
+        }
+    }
+
+    public static void playerReadyCheck(ConsolePlayer player) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nAlas, " + player.getName() + ", you've entered the Battlegrounds of the Elder Gods");
+        System.out.println("Beware, this place is not as it seems.");
+        System.out.println("Enter 'READY' to begin");
+        while (true) {
+            if (sc.nextLine().equalsIgnoreCase("ready")) {
+                break;
+            }
         }
     }
 }
