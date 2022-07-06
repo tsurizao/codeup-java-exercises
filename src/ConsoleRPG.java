@@ -119,7 +119,7 @@ public class ConsoleRPG {
         System.out.println("has been impaled into your chest.  Your senses begin to dull as");
         System.out.println("you hear a guttural victory cry from " + foe.getName() + " standing over you.");
         System.out.println("Everything fades away until there is only pitch black.");
-        System.out.println("You hear a muffle voice, 'You were an acceptable foe.'");
+        System.out.println("You hear a muffled voice, 'You were an acceptable foe.'");
         System.out.println("\n...");
         System.out.println("You wake up in a cold sweat clenching your chest with your hand.  You");
         System.out.println("realize it was just a dream.  But, it felt so incredibly real?!");
