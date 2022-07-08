@@ -6,11 +6,13 @@ public class Bob {
         Scanner sc = new Scanner(System.in);
         long startTime = System.currentTimeMillis();
         System.out.println("\n\n\nLoading BobChat v0.834-beta4323......");
+        // Loop provides a brief pause to give the feeling of the program loading
         while (true) {
             if ((System.currentTimeMillis() - startTime) / 1000 == 3) {
                 break;
             }
         }
+        // Another pause
         while (true) {
             if ((System.currentTimeMillis() - startTime) / 1000 == 5) {
                 break;
