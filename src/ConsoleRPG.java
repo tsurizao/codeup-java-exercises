@@ -62,10 +62,11 @@ public class ConsoleRPG {
     }
 
     // Game mechanics methods
-    public static void printStatusBar(ConsolePlayer player, ConsoleFoe foe){
+    public static void printStatusBar(ConsolePlayer player, ConsoleFoe foe) {
         System.out.println("\nPlayer HP: " + player.getHealth() + " - Enemy HP: " + foe.getHealth());
 
     }
+
     public static void printIntro() {
         System.out.println("\nYour mind rouses in the midst of dancing lights, colors and");
         System.out.println("sounds.  You feel at ease as you listen to the sound of waves lapping");

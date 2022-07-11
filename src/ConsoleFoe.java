@@ -25,11 +25,12 @@ public class ConsoleFoe {
     public String getName() {
         return name;
     }
-    public String getClan(){
+
+    public String getClan() {
         return clan;
     }
 
-    public String getIntroDescription(){
+    public String getIntroDescription() {
         return introDescription;
     }
 }
